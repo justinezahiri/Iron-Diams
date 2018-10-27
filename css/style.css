@@ -2,6 +2,7 @@
     height: 650px;
     width: 650px;
     border: 1px red solid;
+    float: right;
 }
 
 .game-square {
@@ -48,3 +49,9 @@
     background-size: cover;   
 }
 
+#players-counter {
+    height: 300px;
+    width: 300px;
+    border: 1px blue solid;
+    float: left;
+}
