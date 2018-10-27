@@ -1,5 +1,20 @@
-#game-map {
+#game-board {
     height: 650px;
     width: 650px;
     border: 1px red solid;
 }
+
+.game-square {
+    height: 650px;
+    width: 650px;
+    border: 1px green solid;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    height: 128px;
+    width: 128px;
+    border: 1px black solid;
+}
+
