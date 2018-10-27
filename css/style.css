@@ -16,5 +16,35 @@
     height: 128px;
     width: 128px;
     border: 1px black solid;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.diam-one {
+    background-image: url("../img/blueDiam.png");
+    height: 60px;
+    width: 60px; 
+    background-size: cover;   
+}
+
+.diam-two {
+    background-image: url("../img/purpleDiam.png");
+    height: 60px;
+    width: 60px; 
+    background-size: cover;   
+}
+
+.diam-three {
+    background-image: url("../img/redDiam.png");
+    height: 60px;
+    width: 60px; 
+    background-size: cover;   
+}
+
+.diam-four {
+    background-image: url("../img/blackDiam.png");
+    height: 60px;
+    width: 60px; 
+    background-size: cover;   
 }
 
