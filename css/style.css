@@ -44,18 +44,6 @@
     float: left;
 }
 
-#start-game-button {
-
-}
-
-.start-game {
-    float: left;
-    position: relative;
-    cursor: pointer;
-    border: 1px yellow solid;
-    text-align: center;
-    line-height: 45px;
-    width: 200px;
-    height: 300px;
-    font-size: 100px;
+.selectedCell {
+    background-color: grey;
 }

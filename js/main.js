@@ -1,8 +1,12 @@
 var NUMBER_OF_LINES = 5;
 var NUMBER_OF_COLUMNS = 5;
+var diamondsCount = 1 + getRandomInt(4);
 
 $(document).ready(function(){ 
-    generateGameBoard();
+    //The game starts when button START clicked 
+    $('#btn').click(function() {
+        generateGameBoard();
+    })
 });
 
 function getRandomInt(max) {
@@ -25,5 +29,33 @@ function generateGameBoard() {
     };
 
     $('.game-square').append(boardHtml);
+}
+var points;
 
-};
+
+function numberOfPoints(diamondsCount) {
+    if (diamondsCount === 1) {
+        return points = 1;
+    } 
+    if (diamondsCount === 2) {
+        return points = 2;
+    }            
+    if (diamondsCount === 3) {
+        return points = 3;
+    }
+    if (diamondsCount === 4) {
+        return points = 4;
+    }
+}
+
+
+//TODO:highlight the cell selected by player onclick
+//$("body").children()
+//$(".selector").addClass(className)
+//.click()
+
+/*$(".game-square").div().click(function(){
+    $(this).addClass("selectedCell");
+})
+*/
+
