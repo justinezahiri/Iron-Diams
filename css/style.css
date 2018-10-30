@@ -21,32 +21,20 @@
     flex-wrap: wrap;
 }
 
-.diam-one {
-    background-image: url("../img/blueDiam.png");
-    height: 60px;
-    width: 60px; 
-    background-size: cover;   
+.diamonds-count-1 {
+    background-image: url("../img/oneDiam.png");
 }
 
-.diam-two {
-    background-image: url("../img/purpleDiam.png");
-    height: 60px;
-    width: 60px; 
-    background-size: cover;   
+.diamonds-count-2 {
+    background-image: url("../img/twoDiams.png");
 }
 
-.diam-three {
-    background-image: url("../img/redDiam.png");
-    height: 60px;
-    width: 60px; 
-    background-size: cover;   
+.diamonds-count-3 {
+    background-image: url("../img/threeDiams.png");
 }
 
-.diam-four {
-    background-image: url("../img/blackDiam.png");
-    height: 60px;
-    width: 60px; 
-    background-size: cover;   
+.diamonds-count-4 {
+    background-image: url("../img/fourDiams.png");
 }
 
 #players-counter {
@@ -54,4 +42,20 @@
     width: 300px;
     border: 1px blue solid;
     float: left;
+}
+
+#start-game-button {
+
+}
+
+.start-game {
+    float: left;
+    position: relative;
+    cursor: pointer;
+    border: 1px yellow solid;
+    text-align: center;
+    line-height: 45px;
+    width: 200px;
+    height: 300px;
+    font-size: 100px;
 }
