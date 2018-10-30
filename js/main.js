@@ -48,14 +48,13 @@ function numberOfPoints(diamondsCount) {
     }
 }
 
-
 //TODO:highlight the cell selected by player onclick
 //$("body").children()
 //$(".selector").addClass(className)
 //.click()
 
-/*$(".game-square").div().click(function(){
-    $(this).addClass("selectedCell");
+$("div.square diamonds-count-1").click(function() {
+    this.addClass(".selectedCell");
 })
-*/
+
 
