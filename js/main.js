@@ -1,6 +1,8 @@
 var NUMBER_OF_LINES = 5;
 var NUMBER_OF_COLUMNS = 5;
 
+var playerOnePoints = 0;
+
 
 $(document).ready(function(){ 
     //The game starts when button START clicked 
@@ -32,24 +34,37 @@ function generateGameBoard() {
 function bindBoardEventHandlers() {
     $("div.square").click(function() {
         $(this).addClass("selectedCell");
+
+        var numberOfDiamonds = getDiamondsCount($(this));
+        
+        addPointsToCurrentPlayer(numberOfDiamonds);
+
+        //TODO: parse number diamonds from className
+        $(this).removeClass("diamonds-count-1 diamonds-count-2 diamonds-count-3 diamonds-count-4");
     });
 }
 
-/*function numberOfPoints(diamondsCount) {
-    if (diamondsCount === 1) {
-        return points = 1;
+function addPointsToCurrentPlayer(numberOfDiamonds) {
+    playerOnePoints += numberOfDiamonds;
+    //TODO: add points to the right player 
+    console.log(playerOnePoints);
+} 
+
+function getDiamondsCount(jQueryElement) {
+    if (jQueryElement.hasClass("diamonds-count-1")) {
+        return 1;
     } 
-    if (diamondsCount === 2) {
-        return points = 2;
+    if (jQueryElement.hasClass("diamonds-count-2")){
+        return 2;
     }            
-    if (diamondsCount === 3) {
-        return points = 3;
+    if (jQueryElement.hasClass("diamonds-count-3")){
+        return 3;
     }
-    if (diamondsCount === 4) {
-        return points = 4;
+    if (jQueryElement.hasClass("diamonds-count-4")){
+        return 4;
     }
 }
-*/
+
 
 
 
