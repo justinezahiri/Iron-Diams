@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Hexa';
+    src: url('../fonts/qbotype-fonts_hexa/Hexa.ttf') format('truetype');
+  }  
+
+* {
+    font-family: 'Hexa', Arial;
+}
+
+h1 {
+    font-size: 90px;
+    text-align: center;
+}
+
 #game-board {
     height: 650px;
     width: 650px;
@@ -19,6 +33,11 @@
     border: 1px black solid;
     display: flex;
     flex-wrap: wrap;
+}
+
+#start-game-btn {
+    font-size: 50px;
+    margin-bottom: 30px;
 }
 
 .diamonds-count-1 {
@@ -44,6 +63,14 @@
     float: left;
 }
 
+.player-name {
+    font-size: 50px;
+}
+
+.points {
+    font-size: 50px;
+}
+
 .selectedCell {
-    background-color: grey;
+    background-color: lightskyblue;
 }

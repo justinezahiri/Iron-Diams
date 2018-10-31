@@ -6,7 +6,7 @@ var playerOnePoints = 0;
 
 $(document).ready(function(){ 
     //The game starts when button START clicked 
-    $('#btn').click(function() {
+    $('#start-game-btn').click(function() {
         generateGameBoard();
         bindBoardEventHandlers();
     });    
@@ -48,6 +48,7 @@ function addPointsToCurrentPlayer(numberOfDiamonds) {
     playerOnePoints += numberOfDiamonds;
     //TODO: add points to the right player 
     console.log(playerOnePoints);
+    $('.player-one-score').html(playerOnePoints);
 } 
 
 function getDiamondsCount(jQueryElement) {
