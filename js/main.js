@@ -36,7 +36,6 @@ function bindBoardEventHandlers() {
         $(this).addClass("selectedCell");
 
         var numberOfDiamonds = getDiamondsCount($(this));
-        
         addPointsToCurrentPlayer(numberOfDiamonds);
 
         //TODO: parse number diamonds from className
@@ -47,7 +46,6 @@ function bindBoardEventHandlers() {
 function addPointsToCurrentPlayer(numberOfDiamonds) {
     playerOnePoints += numberOfDiamonds;
     //TODO: add points to the right player 
-    console.log(playerOnePoints);
     $('.player-one-score').html(playerOnePoints);
 } 
 
@@ -55,15 +53,16 @@ function getDiamondsCount(jQueryElement) {
     if (jQueryElement.hasClass("diamonds-count-1")) {
         return 1;
     } 
-    if (jQueryElement.hasClass("diamonds-count-2")){
+    else if (jQueryElement.hasClass("diamonds-count-2")){
         return 2;
     }            
-    if (jQueryElement.hasClass("diamonds-count-3")){
+    else if (jQueryElement.hasClass("diamonds-count-3")){
         return 3;
     }
-    if (jQueryElement.hasClass("diamonds-count-4")){
+    else if (jQueryElement.hasClass("diamonds-count-4")){
         return 4;
     }
+    return 0;
 }
 
 
