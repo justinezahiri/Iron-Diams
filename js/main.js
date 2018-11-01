@@ -1,7 +1,17 @@
 var NUMBER_OF_LINES = 5;
 var NUMBER_OF_COLUMNS = 5;
 
-var playerOnePoints = 0;
+// Variables to store the state of the game
+var players = [
+    {   // player 1
+        score: 0
+    },
+    {   // player 2
+        score: 0
+    }
+];
+
+var currentPlayerId = 0;
 
 
 $(document).ready(function(){ 
@@ -40,13 +50,30 @@ function bindBoardEventHandlers() {
 
         //TODO: parse number diamonds from className
         $(this).removeClass("diamonds-count-1 diamonds-count-2 diamonds-count-3 diamonds-count-4");
+
+        changeCurrentPlayer();
     });
 }
 
+function changeCurrentPlayer() {
+    // Update game state    
+    if (currentPlayerId === 0) {
+        currentPlayerId = 1;
+    }
+    else {
+        currentPlayerId = 0;
+    }
+}
+
 function addPointsToCurrentPlayer(numberOfDiamonds) {
-    playerOnePoints += numberOfDiamonds;
-    //TODO: add points to the right player 
-    $('.player-one-score').html(playerOnePoints);
+    players[currentPlayerId]["score"] += numberOfDiamonds;
+
+    if (currentPlayerId === 0) {
+        $('.player-one-score').html(players[0]["score"]);
+    }
+    else {
+        $('.player-two-score').html(players[1]["score"]);
+    }    
 } 
 
 function getDiamondsCount(jQueryElement) {
