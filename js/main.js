@@ -133,6 +133,11 @@ function isTentativePositionValid(tentativePosition) {
     var xCurrentPlayer = players[currentPlayerId]["position"]["x"];
     var yCurrentPlayer = players[currentPlayerId]["position"]["y"];
 
+    // Starting position is always valid 
+    if (xCurrentPlayer === null || yCurrentPlayer === null) {
+        return true;
+    }
+
     var xDistance = Math.abs(tentativePosition["x"] - xCurrentPlayer);
     var yDistance = Math.abs(tentativePosition["y"] - yCurrentPlayer);
 
