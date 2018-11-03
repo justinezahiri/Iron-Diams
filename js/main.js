@@ -57,6 +57,7 @@ function bindBoardEventHandlers() {
 
         //TODO: test if tentative position valid 
         if (isTentativePositionValid(tentativePosition)) {
+            updateCurrentPlayerPosition(tentativePosition);
             $(this).addClass("selectedCell");
         
             var numberOfDiamonds = getDiamondsCount($(this));
@@ -119,11 +120,26 @@ function getPosition(jQueryObject) {
     var x = line.parent().children().index(line);
 
     var y = line.children().index(jQueryObject);
+    return {x : x, y : y};
 }
 
-//TODO: implement
-function isTentativePositionValid() {
-    return true;
+function updateCurrentPlayerPosition(position) {
+    players[currentPlayerId]["position"]["x"] = position["x"];
+    players[currentPlayerId]["position"]["y"] = position["y"];
+}
+
+function isTentativePositionValid(tentativePosition) {
+    //valid position : not further than 1 cell x & 1 cell y from current position
+    var xCurrentPlayer = players[currentPlayerId]["position"]["x"];
+    var yCurrentPlayer = players[currentPlayerId]["position"]["y"];
+
+    var xDistance = Math.abs(tentativePosition["x"] - xCurrentPlayer);
+    var yDistance = Math.abs(tentativePosition["y"] - yCurrentPlayer);
+
+    if (xDistance <= 1 && yDistance <= 1) {
+        return true;
+    }
+    return false;
 }
 
 
