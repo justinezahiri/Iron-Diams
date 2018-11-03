@@ -4,10 +4,18 @@ var NUMBER_OF_COLUMNS = 5;
 // Variables to store the state of the game
 var players = [
     {   // player 1
-        score: 0
+        score: 0,
+        position: {
+            x: null,
+            y: null
+        }
     },
     {   // player 2
-        score: 0
+        score: 0,
+        position: {
+            x: null,
+            y: null
+        }
     }
 ];
 
@@ -43,15 +51,26 @@ function generateGameBoard() {
 
 function bindBoardEventHandlers() {
     $("div.square").click(function() {
-        $(this).addClass("selectedCell");
 
-        var numberOfDiamonds = getDiamondsCount($(this));
-        addPointsToCurrentPlayer(numberOfDiamonds);
+        //TODO: create a variable to store players tentative position 
+        var tentativePosition = getPosition($(this));
 
-        //TODO: parse number diamonds from className
-        $(this).removeClass("diamonds-count-1 diamonds-count-2 diamonds-count-3 diamonds-count-4");
+        //TODO: test if tentative position valid 
+        if (isTentativePositionValid(tentativePosition)) {
+            $(this).addClass("selectedCell");
+        
+            var numberOfDiamonds = getDiamondsCount($(this));
+            addPointsToCurrentPlayer(numberOfDiamonds);
 
-        changeCurrentPlayer();
+            //TODO: parse number diamonds from className
+            $(this).removeClass("diamonds-count-1 diamonds-count-2 diamonds-count-3 diamonds-count-4");
+
+            changeCurrentPlayer();
+        }
+        else { 
+            //TODO: buzzer sound 
+        } 
+        
     });
 }
 
@@ -76,22 +95,36 @@ function addPointsToCurrentPlayer(numberOfDiamonds) {
     }    
 } 
 
-function getDiamondsCount(jQueryElement) {
-    if (jQueryElement.hasClass("diamonds-count-1")) {
+function getDiamondsCount(jQueryObject) {
+    if (jQueryObject.hasClass("diamonds-count-1")) {
         return 1;
     } 
-    else if (jQueryElement.hasClass("diamonds-count-2")){
+    else if (jQueryObject.hasClass("diamonds-count-2")){
         return 2;
     }            
-    else if (jQueryElement.hasClass("diamonds-count-3")){
+    else if (jQueryObject.hasClass("diamonds-count-3")){
         return 3;
     }
-    else if (jQueryElement.hasClass("diamonds-count-4")){
+    else if (jQueryObject.hasClass("diamonds-count-4")){
         return 4;
     }
     return 0;
 }
 
+function getPosition(jQueryObject) {
+    // x: rank of the containing line
+    // y: rank within a line
+
+    var line = $(jQueryObject).parent();
+    var x = line.parent().children().index(line);
+
+    var y = line.children().index(jQueryObject);
+}
+
+//TODO: implement
+function isTentativePositionValid() {
+    return true;
+}
 
 
 
