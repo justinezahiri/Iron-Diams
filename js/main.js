@@ -2,29 +2,15 @@ var NUMBER_OF_LINES = 5;
 var NUMBER_OF_COLUMNS = 5;
 
 // Variables to store the state of the game
-var players = [
-    {   // player 1
-        score: 0,
-        position: {
-            x: null,
-            y: null
-        }
-    },
-    {   // player 2
-        score: 0,
-        position: {
-            x: null,
-            y: null
-        }
-    }
-];
+var players;
 
-var currentPlayerId = 0;
+var currentPlayerId;
 
 
 $(document).ready(function(){ 
     //The game starts when button START clicked 
     $('#start-game-btn').click(function() {
+        resetGameState();
         generateGameBoard();
         bindBoardEventHandlers();
         hilightCurrentPlayerInfo();
@@ -166,4 +152,32 @@ function hilightCurrentPlayerInfo() {
         $('.player-two').addClass("hilighted");
         $('.player-one').removeClass("hilighted");
     }
+}
+
+function resetGameState() {
+    players = [
+        {   // player 1
+            score: 0,
+            position: {
+                x: null,
+                y: null
+            }
+        },
+        {   // player 2
+            score: 0,
+            position: {
+                x: null,
+                y: null
+            }
+        }
+    ];
+    
+    currentPlayerId = 0;
+
+    //clear points counters
+    $('.points').html("&nbsp;");
+
+    //reset hilights
+    $('.player-one, .player-two').removeClass("hilighted");
+    
 }
