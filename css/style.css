@@ -89,3 +89,8 @@ h1 {
 .selected-cell-player2 {
     background-color: purple;
 }
+
+#players-counter .hilighted {
+    text-decoration: underline;
+}
+

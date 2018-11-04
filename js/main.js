@@ -27,6 +27,7 @@ $(document).ready(function(){
     $('#start-game-btn').click(function() {
         generateGameBoard();
         bindBoardEventHandlers();
+        hilightCurrentPlayerInfo();
     });    
 });
 
@@ -66,6 +67,7 @@ function bindBoardEventHandlers() {
             $(this).removeClass("diamonds-count-1 diamonds-count-2 diamonds-count-3 diamonds-count-4");
 
             changeCurrentPlayer();
+            hilightCurrentPlayerInfo();
         }
         else { 
             //TODO: buzzer sound 
@@ -155,4 +157,13 @@ function hilightSelectedCell(jQueryObject) {
     }
 }
 
-
+function hilightCurrentPlayerInfo() {
+    if (currentPlayerId === 0) {
+        $('.player-one').addClass("hilighted");
+        $('.player-two').removeClass("hilighted");
+    }
+    else {
+        $('.player-two').addClass("hilighted");
+        $('.player-one').removeClass("hilighted");
+    }
+}
