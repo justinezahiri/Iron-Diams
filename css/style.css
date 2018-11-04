@@ -67,7 +67,18 @@ h1 {
     font-size: 50px;
 }
 
+.player-one.player-name,
+.player-one.player-one-score {
+    color: lightskyblue;
+}
+
+.player-two.player-name,
+.player-two.player-two-score {
+    color: purple;
+}
+
 .points {
+    /* TODO: remove the need to add an empty character to reserve vertical space */
     font-size: 50px;
 }
 
