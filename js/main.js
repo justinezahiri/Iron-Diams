@@ -52,14 +52,13 @@ function generateGameBoard() {
 function bindBoardEventHandlers() {
     $("div.square").click(function() {
 
-        //TODO: create a variable to store players tentative position 
         var tentativePosition = getPosition($(this));
 
-        //TODO: test if tentative position valid 
         if (isTentativePositionValid(tentativePosition)) {
             updateCurrentPlayerPosition(tentativePosition);
-            $(this).addClass("selectedCell");
-        
+
+            hilightSelectedCell($(this));
+
             var numberOfDiamonds = getDiamondsCount($(this));
             addPointsToCurrentPlayer(numberOfDiamonds);
 
@@ -147,6 +146,13 @@ function isTentativePositionValid(tentativePosition) {
     return false;
 }
 
-
+function hilightSelectedCell(jQueryObject) {
+    if (currentPlayerId === 0) {
+        jQueryObject.addClass("selected-cell-player1");
+    }
+    else {
+        jQueryObject.addClass("selected-cell-player2");
+    }
+}
 
 

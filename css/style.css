@@ -71,6 +71,10 @@ h1 {
     font-size: 50px;
 }
 
-.selectedCell {
+.selected-cell-player1 {
     background-color: lightskyblue;
+}
+
+.selected-cell-player2 {
+    background-color: purple;
 }
