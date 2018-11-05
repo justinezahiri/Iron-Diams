@@ -6,6 +6,10 @@ var players;
 
 var currentPlayerId;
 
+var actions;
+
+var rounds;
+
 
 $(document).ready(function(){ 
     //The game starts when button START clicked 
@@ -54,6 +58,11 @@ function bindBoardEventHandlers() {
 
             changeCurrentPlayer();
             hilightCurrentPlayerInfo();
+
+            actions++;
+            updateRoundsCounter();
+            console.log("rounds remaining : " + rounds);
+
         }
         else { 
             //TODO: buzzer sound 
@@ -174,10 +183,23 @@ function resetGameState() {
     
     currentPlayerId = 0;
 
+    actions = 0;
+
+    rounds = 5;
+
     //clear points counters
     $('.points').html("&nbsp;");
 
     //reset hilights
     $('.player-one, .player-two').removeClass("hilighted");
     
+}
+
+function updateRoundsCounter() {
+    //TODO: decrement var rounds after player 1 & player 2 played
+    if (actions % 2 === 0) {
+        rounds --;
+        //TODO: display the updated rounds counter 
+    }
+
 }
