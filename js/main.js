@@ -185,21 +185,24 @@ function resetGameState() {
 
     actions = 0;
 
-    rounds = 5;
+    rounds = 10;
 
     //clear points counters
     $('.points').html("&nbsp;");
 
     //reset hilights
     $('.player-one, .player-two').removeClass("hilighted");
+
+    //clear rounds counter
+    $('.rounds').html("round 10");
     
 }
 
 function updateRoundsCounter() {
-    //TODO: decrement var rounds after player 1 & player 2 played
+    //decrement rounds after player 1 & player 2 played
     if (actions % 2 === 0) {
         rounds --;
         //TODO: display the updated rounds counter 
+        $('.rounds').html("round " + rounds);
     }
-
 }
