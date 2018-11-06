@@ -64,18 +64,20 @@ function bindBoardEventHandlers() {
                     
         if (rounds === 0) {
             displayGameWinner();
+            resetGameState();
+            generateGameBoard();
         }
 
         }
         else { 
             //TODO: buzzer sound 
+            window.alert("You can move only one cell at a time ! No jump!")
         } 
         
     });
 }
 
-function changeCurrentPlayer() {
-    // Update game state    
+function changeCurrentPlayer() {   
     if (currentPlayerId === 0) {
         currentPlayerId = 1;
     }
@@ -128,7 +130,6 @@ function updateCurrentPlayerPosition(position) {
 }
 
 function isTentativePositionValid(tentativePosition) {
-    //valid position : not further than 1 cell x & 1 cell y from current position
     var xCurrentPlayer = players[currentPlayerId]["position"]["x"];
     var yCurrentPlayer = players[currentPlayerId]["position"]["y"];
 
@@ -140,6 +141,7 @@ function isTentativePositionValid(tentativePosition) {
     var xDistance = Math.abs(tentativePosition["x"] - xCurrentPlayer);
     var yDistance = Math.abs(tentativePosition["y"] - yCurrentPlayer);
 
+    //valid position : not further than 1 cell x & 1 cell y from current position
     if (xDistance <= 1 && yDistance <= 1) {
         return true;
     }
@@ -156,6 +158,11 @@ function hilightSelectedCell(jQueryObject) {
 }
 
 //TODO: hilight last selected cell in a different color 
+/*function hilightLastSelectedCell() {
+    use focus method ?
+    use last() method ?
+}
+}*/
 
 function hilightCurrentPlayerInfo() {
     if (currentPlayerId === 0) {
@@ -214,17 +221,12 @@ function updateRoundsCounter() {
 
 function displayGameWinner () {
     if (players[0]["score"] > players[1]["score"]) {
-        //TODO: player one wins 
-        console.log("player one wins !");
         window.alert("player one wins!!");
     }
     else if (players[1]["score"] > players[0]["score"]) {
-        //TODO: player two wins
-        console.log("player two wins !");
         window.alert("player two wins!!");
     }
     else {
-        //TODO: "you both win !"
         window.alert("you both win !!");
     }
 }

@@ -5,12 +5,11 @@
 
 * {
     font-family: 'Hexa', Arial;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    height: 650px;
+    height: 100%;
+    width: 100%;
     background-color: black;
 }
 
@@ -23,7 +22,7 @@ h1 {
 #game-board {
     height: 650px;
     width: 650px;
-    border: 1px red solid; 
+    border: 4px white solid; 
     float: right;
     margin: 0, 30px, 30px, 30px;
 }
@@ -31,7 +30,6 @@ h1 {
 .game-square {
     height: 650px;
     width: 650px;
-    border: 1px green solid;
     display: flex;
     flex-wrap: wrap;
 }
@@ -68,7 +66,6 @@ h1 {
 #players-counter {
     height: 300px;
     width: 300px;
-    border: 1px blue solid;
     float: left;
     margin: 30px;
 }
@@ -101,6 +98,10 @@ h1 {
     background-color: rgb(141, 0, 194);
 }
 
+/*.lastSelectedCell {
+    border: yellow 2px solid;
+}*/
+
 #players-counter .hilighted {
     text-decoration: underline;
 }
@@ -108,7 +109,6 @@ h1 {
 #rounds-counter {
     height: 100px;
     width: 300px;
-    border: 1px yellow solid;
     float: left;
     margin-top: 30px;
 }
@@ -117,3 +117,4 @@ h1 {
     font-size: 50px;
     color: greenyellow;
 }
+
