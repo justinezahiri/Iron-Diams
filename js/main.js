@@ -61,7 +61,10 @@ function bindBoardEventHandlers() {
 
             actions++;
             updateRoundsCounter();
-            console.log("rounds remaining : " + rounds);
+                    
+        if (rounds === 0) {
+            displayGameWinner();
+        }
 
         }
         else { 
@@ -152,6 +155,8 @@ function hilightSelectedCell(jQueryObject) {
     }
 }
 
+//TODO: hilight last selected cell in a different color 
+
 function hilightCurrentPlayerInfo() {
     if (currentPlayerId === 0) {
         $('.player-one').addClass("hilighted");
@@ -194,7 +199,7 @@ function resetGameState() {
     $('.player-one, .player-two').removeClass("hilighted");
 
     //clear rounds counter
-    $('.rounds').html("round 10");
+    $('.rounds').html("rounds left 10");
     
 }
 
@@ -202,7 +207,24 @@ function updateRoundsCounter() {
     //decrement rounds after player 1 & player 2 played
     if (actions % 2 === 0) {
         rounds --;
-        //TODO: display the updated rounds counter 
-        $('.rounds').html("round " + rounds);
+        //display the updated rounds counter 
+        $('.rounds').html("rounds left " + rounds);
+    }
+}
+
+function displayGameWinner () {
+    if (players[0]["score"] > players[1]["score"]) {
+        //TODO: player one wins 
+        console.log("player one wins !");
+        window.alert("player one wins!!");
+    }
+    else if (players[1]["score"] > players[0]["score"]) {
+        //TODO: player two wins
+        console.log("player two wins !");
+        window.alert("player two wins!!");
+    }
+    else {
+        //TODO: "you both win !"
+        window.alert("you both win !!");
     }
 }

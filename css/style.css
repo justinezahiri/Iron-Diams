@@ -5,18 +5,27 @@
 
 * {
     font-family: 'Hexa', Arial;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 650px;
+    background-color: black;
 }
 
 h1 {
     font-size: 90px;
     text-align: center;
+    color: white;
 }
 
 #game-board {
     height: 650px;
     width: 650px;
-    border: 1px red solid;
+    border: 1px red solid; 
     float: right;
+    margin: 0, 30px, 30px, 30px;
 }
 
 .game-square {
@@ -30,14 +39,14 @@ h1 {
 .square {
     height: 128px;
     width: 128px;
-    border: 1px black solid;
+    border: 1px white solid;
     display: flex;
     flex-wrap: wrap;
 }
 
 #start-game-btn {
     font-size: 50px;
-    margin-bottom: 30px;
+    margin: 30px;
 }
 
 .diamonds-count-1 {
@@ -61,6 +70,7 @@ h1 {
     width: 300px;
     border: 1px blue solid;
     float: left;
+    margin: 30px;
 }
 
 .player-name {
@@ -69,25 +79,26 @@ h1 {
 
 .player-one.player-name,
 .player-one.player-one-score {
-    color: lightskyblue;
+    color: rgb(231, 0, 49);
 }
 
 .player-two.player-name,
 .player-two.player-two-score {
-    color: purple;
+    color: rgb(141, 0, 194);
 }
 
 .points {
     /* TODO: remove the need to add an empty character to reserve vertical space */
     font-size: 50px;
+    text-align: center;
 }
 
 .selected-cell-player1 {
-    background-color: lightskyblue;
+    background-color: rgb(231, 0, 49);
 }
 
 .selected-cell-player2 {
-    background-color: purple;
+    background-color: rgb(141, 0, 194);
 }
 
 #players-counter .hilighted {
@@ -103,5 +114,6 @@ h1 {
 }
 
 .rounds {
-    font-size: 50px
+    font-size: 50px;
+    color: greenyellow;
 }
