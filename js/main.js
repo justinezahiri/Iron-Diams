@@ -124,10 +124,7 @@ function getPosition(jQueryObject) {
     return {x : x, y : y};
 }
 
-function updateCurrentPlayerPosition(position) {
-    players[currentPlayerId]["position"]["x"] = position["x"];
-    players[currentPlayerId]["position"]["y"] = position["y"];
-}
+
 
 function isTentativePositionValid(tentativePosition) {
     var xCurrentPlayer = players[currentPlayerId]["position"]["x"];
@@ -148,21 +145,21 @@ function isTentativePositionValid(tentativePosition) {
     return false;
 }
 
-function hilightSelectedCell(jQueryObject) {
-    if (currentPlayerId === 0) {
-        jQueryObject.addClass("selected-cell-player1");
-    }
-    else {
-        jQueryObject.addClass("selected-cell-player2");
-    }
+function updateCurrentPlayerPosition(position) {
+    players[currentPlayerId]["position"]["x"] = position["x"];
+    players[currentPlayerId]["position"]["y"] = position["y"];
 }
 
-//TODO: hilight last selected cell in a different color 
-/*function hilightLastSelectedCell() {
-    use focus method ?
-    use last() method ?
+function hilightSelectedCell(jQueryObject) {
+    if (currentPlayerId === 0) {
+        $('.current-cell-player1').removeClass('current-cell-player1');
+        jQueryObject.addClass("selected-cell-player1 current-cell-player1");
+    }
+    else {
+        $('.current-cell-player2').removeClass('current-cell-player2');
+        jQueryObject.addClass("selected-cell-player2 current-cell-player2");
+    }
 }
-}*/
 
 function hilightCurrentPlayerInfo() {
     if (currentPlayerId === 0) {
