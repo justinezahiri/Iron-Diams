@@ -123,9 +123,6 @@ function getPosition(jQueryObject) {
     var y = line.children().index(jQueryObject);
     return {x : x, y : y};
 }
-
-
-
 function isTentativePositionValid(tentativePosition) {
     var xCurrentPlayer = players[currentPlayerId]["position"]["x"];
     var yCurrentPlayer = players[currentPlayerId]["position"]["y"];
@@ -151,6 +148,7 @@ function updateCurrentPlayerPosition(position) {
 }
 
 function hilightSelectedCell(jQueryObject) {
+    //TODO: avoid css conflict when cell has been selected by multiple players
     if (currentPlayerId === 0) {
         $('.current-cell-player1').removeClass('current-cell-player1');
         jQueryObject.addClass("selected-cell-player1 current-cell-player1");
