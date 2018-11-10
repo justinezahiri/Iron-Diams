@@ -40,6 +40,7 @@ function generateGameBoard() {
     $('.game-square').html(boardHtml);
 }
 
+// GAME LOGIC 
 function bindBoardEventHandlers() {
     $("div.square").click(function() {
 
@@ -76,6 +77,7 @@ function bindBoardEventHandlers() {
         
     });
 }
+// END GAME LOGIC //
 
 function changeCurrentPlayer() {   
     if (currentPlayerId === 0) {
@@ -151,10 +153,12 @@ function hilightSelectedCell(jQueryObject) {
     //TODO: avoid css conflict when cell has been selected by multiple players
     if (currentPlayerId === 0) {
         $('.current-cell-player1').removeClass('current-cell-player1');
+        $('.selected-cell-player1').removeClass('selected-cell-player2 current-cell-player2')
         jQueryObject.addClass("selected-cell-player1 current-cell-player1");
     }
     else {
         $('.current-cell-player2').removeClass('current-cell-player2');
+        $('.selected-cell-player2').removeClass('selected-cell-player1 current-cell-player1')
         jQueryObject.addClass("selected-cell-player2 current-cell-player2");
     }
 }
