@@ -10,6 +10,9 @@ var actions;
 
 var rounds;
 
+//sounds
+
+var getDiamondsSound = new Audio('../sounds/getDiamonds.mp3');
 
 $(document).ready(function(){ 
     //The game starts when button START clicked 
@@ -50,7 +53,8 @@ function bindBoardEventHandlers() {
             updateCurrentPlayerPosition(tentativePosition);
 
             hilightSelectedCell($(this));
-
+            getDiamondsSound.play();
+           
             var numberOfDiamonds = getDiamondsCount($(this));
             addPointsToCurrentPlayer(numberOfDiamonds);
 
